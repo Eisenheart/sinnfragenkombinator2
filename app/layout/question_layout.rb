@@ -3,12 +3,12 @@ class QuestionLayout < MotionKit::Layout
   def layout
       add UILabel, :label_ist
       add UILabel, :label_subject
-      add UILabel, :label_second_part #includes question mark
-      # add UIButton, :button
+      add UILabel, :label_second_part
+      add UIButton, :button_question
   end
 
   def label_ist_style
-    text "Warum leben wir?"
+    text "Ist"
     color UIColor.whiteColor
     font UIFont.systemFontOfSize(15)
 
@@ -21,7 +21,7 @@ class QuestionLayout < MotionKit::Layout
   end
 
   def label_subject_style
-    text "Warum leben wir?"
+    text ['Europa','Aufräumen','Berlin','Leberwurst'].sample
     color UIColor.whiteColor
     font UIFont.systemFontOfSize(15)
 
@@ -36,7 +36,7 @@ class QuestionLayout < MotionKit::Layout
   end
 
   def label_second_part_style
-    text "Warum leben wir?"
+    text ['an allem Schuld','die Lösung ','ein Witz ','unverbesserlich'].sample + "?"
     color UIColor.whiteColor
     font UIFont.systemFontOfSize(15)
 
@@ -50,14 +50,14 @@ class QuestionLayout < MotionKit::Layout
     end
   end
 
-  # def button_style
-  #   number_of_lines 0
-  #   text_alignment :center.nsalignment # NSTextAlignmentCenter
+  def button_question_style
+    # number_of_lines 0
+    text_alignment :center.nsalignment # NSTextAlignmentCenter
 
-  #   constraints do
-  #     left 20
-  #     right -20
-  #   end
-  # end
+    constraints do
+      left 20
+      right -20
+    end
+  end
 
 end

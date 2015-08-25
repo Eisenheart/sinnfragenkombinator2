@@ -5,11 +5,12 @@ class AnswerLayout < MotionKit::Layout
       add UILabel, :label_ist
       add UILabel, :label_second_part
       add UILabel, :label_third_part
+      add UIButton, :button_answer
   end
 
 
  def label_subject_style
-    text random_subject
+    text ['Europa','Aufräumen','Berlin','Leberwurst'].sample
     color UIColor.whiteColor
     font UIFont.systemFontOfSize(15)
 
@@ -22,7 +23,7 @@ class AnswerLayout < MotionKit::Layout
   end
 
   def label_ist_style
-    text the_ist
+    text "ist"
     color UIColor.whiteColor
     font UIFont.systemFontOfSize(15)
 
@@ -37,7 +38,7 @@ class AnswerLayout < MotionKit::Layout
   end
 
   def label_second_part_style
-    text random_second_part
+    text ['letztlich','sozusagen','am Ende des Tages','quasi'].sample
     color UIColor.whiteColor
     font UIFont.systemFontOfSize(15)
 
@@ -52,7 +53,7 @@ class AnswerLayout < MotionKit::Layout
   end
 
   def label_third_part_style
-    text random_third_part
+    text ['die Basis des Zusammenlebens','die hoechste Tugend','der Anfang allen Uebels','das, wofuer es sich zu leben lohnt'].sample + "."
     color UIColor.whiteColor
     font UIFont.systemFontOfSize(15)
 
@@ -66,15 +67,15 @@ class AnswerLayout < MotionKit::Layout
     end
   end
 
-  # def button_style
-  #   number_of_lines 0
-  #   text_alignment :center.nsalignment # NSTextAlignmentCenter
+  def button_answer_style
+    # number_of_lines 0
+    text_alignment :center.nsalignment # NSTextAlignmentCenter
 
-  #   constraints do
-  #     left 20
-  #     right -20
-  #   end
-  # end
+    constraints do
+      left 20
+      right -20
+    end
+  end
 
 end
 

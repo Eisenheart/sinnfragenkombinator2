@@ -1,43 +1,63 @@
 
-class QuestionLayout < MK::Layout
+class QuestionLayout < MotionKit::Layout
   def layout
-    root :question do  #can I have 2 here?
-      add UILabel, :label
-      add UIButton, :button
-    end
+      add UILabel, :label_ist
+      add UILabel, :label_subject
+      add UILabel, :label_second_part #includes question mark
+      # add UIButton, :button
   end
 
-  def question_style
-    background_color "#FFFFFF".uicolor # UIColor.whiteColor
-  end
+  def label_ist_style
+    text "Warum leben wir?"
+    color UIColor.whiteColor
+    font UIFont.systemFontOfSize(15)
 
-  def label_style
-    number_of_lines 0
-    text_alignment :center.nsalignment # NSTextAlignmentCenter
+    # text_alignment :center.nsalignment # NSTextAlignmentCenter
 
     constraints do
-      left 20
-      right -20
+      top_left.equals(:superview).plus([30,90])
+      width.equals(:superview).minus(40)
     end
   end
 
-  def button_style
-    number_of_lines 0
-    text_alignment :center.nsalignment # NSTextAlignmentCenter
+  def label_subject_style
+    text "Warum leben wir?"
+    color UIColor.whiteColor
+    font UIFont.systemFontOfSize(15)
+
+    # text_alignment :center.nsalignment # NSTextAlignmentCenter
 
     constraints do
-      left 20
-      right -20
+      top_left.equals(:label_ist, :bottom).plus(15)
+      left.equals(:label_ist)
+      right.equals(:label_ist)
+      height.is <= 61 #needed?
     end
   end
 
-  def add_top_layout_guide_constraint(controller)
-    unless @constraint_added
-      @constraint_added = true
+  def label_second_part_style
+    text "Warum leben wir?"
+    color UIColor.whiteColor
+    font UIFont.systemFontOfSize(15)
 
-      constraints(:notes) do
-        top.equals(controller.topLayoutGuide, :bottom).plus(20)
-      end
+    # text_alignment :center.nsalignment # NSTextAlignmentCenter
+
+    constraints do
+      top_left.equals(:label_subject, :bottom).plus(15)
+      left.equals(:label_subject)
+      right.equals(:label_subject)
+      height.is <= 61 #needed?
     end
   end
+
+  # def button_style
+  #   number_of_lines 0
+  #   text_alignment :center.nsalignment # NSTextAlignmentCenter
+
+  #   constraints do
+  #     left 20
+  #     right -20
+  #   end
+  # end
+
 end

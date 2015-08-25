@@ -5,10 +5,11 @@ class ShowAnswersScreen < PM::Screen
   def on_load
     self.title = "Antworten"
 
-    # @layout = QuestionAnswerLayout.new(root: self.view)
-    # @layout.build
-    # @layout.get(:notes).text = question.notes
+    @layout = AnswerLayout.new
+    self.view = @layout.view
+
     set_nav_bar_button :right, title: "Frage", action: :close_answer
+
   end
 
   # def content
@@ -27,4 +28,13 @@ class ShowAnswersScreen < PM::Screen
     # open ShowQuestionsScreen.new(nav_bar: true)
     # open ShowAnswersScreen.new({ answer: question })
   end
+
+  # def load_failed
+  #   UIAlert.alloc.initWithTitle('Failed to load',
+  #     message: 'The answers content failed to load sorry, double check you have an internet connection',
+  #     delegate: nil,
+  #     cancelButtonTitle: 'OK',
+  #     otherButtonTitles: nil
+  #   ).show
+  # end
 end

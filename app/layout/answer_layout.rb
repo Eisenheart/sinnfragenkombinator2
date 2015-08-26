@@ -6,7 +6,7 @@ class AnswerLayout < MotionKit::Layout
       add UILabel, :label_second_part
       add UILabel, :label_third_part
       # add UIImageView, :profile_image
-      # add UIButton, :button_answer
+      add UIButton, :button_answer
   end
 
 
@@ -20,7 +20,7 @@ class AnswerLayout < MotionKit::Layout
 
     constraints do
       top_left.equals(:superview).plus([30,90])
-      width.equals(:superview).minus(40)
+      right.equals(:superview).minus(100)
     end
   end
 
@@ -33,7 +33,6 @@ class AnswerLayout < MotionKit::Layout
 
     constraints do
       top_left.equals(:label_subject, :bottom).plus(25)
-      left.equals(:label_subject)
       right.equals(:label_subject)
       height.is <= 61 #needed?
     end
@@ -49,7 +48,6 @@ class AnswerLayout < MotionKit::Layout
 
     constraints do
       top_left.equals(:label_ist, :bottom).plus(25)
-      left.equals(:label_ist)
       right.equals(:label_ist)
       height.is <= 61 #needed?
     end
@@ -64,21 +62,40 @@ class AnswerLayout < MotionKit::Layout
 
     constraints do
       top_left.equals(:label_second_part, :bottom).plus(25)
-      left.equals(:label_second_part)
       right.equals(:label_second_part)
       height.is <= 61 #needed?
     end
   end
 
-  # def button_answer_style
-  #   # number_of_lines 0
-  #   text_alignment :center.nsalignment # NSTextAlignmentCenter
+  def button_answer_style
+    title "refresh"
+    title_color UIColor.whiteColor
+    height 40
+    width 80
+    center ['50%', 100]
+    background_color "#808080".uicolor
+    font UIFont.boldSystemFontOfSize(15)
 
-  #   constraints do
-  #     left 20
-  #     right -20
-  #   end
-  # end
+    layer do
+      corner_radius 7.0
+      shadow_color '#000000'.cgcolor
+      shadow_opacity 0.9
+      shadow_radius 2.0
+      shadow_offset [0, 0]
+    end
+
+
+    # title_shadow_color UIColor.blueColor
+    # title_font UIFont.systemFontOfSize(15)
+
+    # text_alignment :center.nsalignment # NSTextAlignmentCenter
+
+    constraints do
+      top_left.equals(:label_third_part, :bottom).plus(60)
+      right.equals(:label_third_part).minus(100)
+      # height.is <= 61 #needed?
+    end
+  end
 
 end
 

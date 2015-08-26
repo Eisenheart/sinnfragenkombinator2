@@ -28,7 +28,7 @@ class ShowQuestionsScreen < PM::Screen
   end
 
   def refresh_question
-    open_modal ShowQuestionScreen.new(nav_bar: true)
+    open ShowQuestionsScreen.new(nav_bar: true)
   end
 
 end

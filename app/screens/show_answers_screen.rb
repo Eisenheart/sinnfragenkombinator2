@@ -8,8 +8,9 @@ class ShowAnswersScreen < PM::Screen
     @layout = AnswerLayout.new
     self.view = @layout.view
 
-    set_nav_bar_button :right, title: "Frage", action: :close_answer
+    @button = @layout.get(:button_answer)
 
+    set_nav_bar_button :right, title: "Frage", action: :close_answer
   end
 
   # def content
@@ -22,6 +23,17 @@ class ShowAnswersScreen < PM::Screen
   #   @layout.add_top_layout_guide_constraint(self)
   #   super
   # end
+
+  def will_appear
+    # set_attributes self.view, {
+    #   background_color: hex_color("#323232") #323232 dark grey
+    # }
+    @button.addTarget(self, action:'refresh_answer', forControlEvents:UIControlEventTouchUpInside)
+  end
+
+  def refresh_answer
+    open_modal ShowAnswersScreen.new(nav_bar: true)
+  end
 
   def close_answer#(question)
     close

@@ -19,7 +19,6 @@ class QuestionLayout < MotionKit::Layout
 
     constraints do
       top_left.equals(:superview).plus([30,90])
-      left.equals(:superview).plus(100)
       right.equals(:superview).minus(100)
       # width.equals(:superview).minus(40)
     end
@@ -35,7 +34,6 @@ class QuestionLayout < MotionKit::Layout
 
     constraints do
       top_left.equals(:label_question_ist, :bottom).plus(35)
-      left.equals(:label_question_ist)
       right.equals(:label_question_ist)
       height.is <= 61 #needed?
     end
@@ -50,7 +48,6 @@ class QuestionLayout < MotionKit::Layout
 
     constraints do
       top_left.equals(:label_question_subject, :bottom).plus(35)
-      left.equals(:label_question_subject)
       right.equals(:label_question_subject)
       height.is <= 61 #needed?
     end
@@ -81,7 +78,6 @@ class QuestionLayout < MotionKit::Layout
 
     constraints do
       top_left.equals(:label_question_second_part, :bottom).plus(60)
-      left.equals(:label_question_second_part).plus(180)
       right.equals(:label_question_second_part).minus(100)
       # height.is <= 61 #needed?
     end

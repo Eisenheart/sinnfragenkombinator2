@@ -13,10 +13,10 @@ class Question
   end
 
   def random_subject
-    @question_subject.sample
+    @question_subject
   end
 
   def random_second_part
-    @question_second_part.sample
+    @question_second_part
   end
 end

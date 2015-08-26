@@ -18,7 +18,7 @@ class ShowQuestionsScreen < PM::Screen
     # set_attributes self.view, {
     #   background_color: hex_color("#323232") #323232 dark grey
     # }
-    @button.addTarget self, action:'refresh_question', forControlEvents:UIControlEventTouchUpInside
+    @button.addTarget(self, action:'refresh_question', forControlEvents:UIControlEventTouchUpInside)
   end
 
   def show_answer#(question)
@@ -28,7 +28,7 @@ class ShowQuestionsScreen < PM::Screen
   end
 
   def refresh_question
-    open ShowQuestionScreen.new(nav_bar: true)
+    open_modal ShowQuestionScreen.new(nav_bar: true)
   end
 
 end
